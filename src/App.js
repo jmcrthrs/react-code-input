@@ -38,6 +38,7 @@ export default function App() {
       {[0, 1, 2, 3, 4].map(index => {
         return (
           <input
+            required
             key={index}
             autoFocus={index === 0}
             onFocus={onFocus}
