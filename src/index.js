@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./App";
+import CodeInput from "./CodeInput";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CodeInput length={5} />
   </React.StrictMode>,
   rootElement
 );

@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
 import "./styles.css";
 
-export default function App() {
+export default function CodeInput({ length }) {
   const inputRefs = useRef([]);
 
+  /*
+    store a reference to our input field
+  */
   const setRefAtIndex = idx => {
     return ref => {
       if (ref) {
@@ -12,6 +15,10 @@ export default function App() {
     };
   };
 
+  /*
+    when the user pastes, split the string and place a value
+    in each input
+  */
   const onPaste = event => {
     console.log(event.clipboardData.getData("Text"));
     const value = event.clipboardData.getData("Text");
@@ -22,20 +29,25 @@ export default function App() {
     });
   };
 
+  /*
+    set the input value and jump to the next input in the list
+  */
   const onChange = (value, index) => {
     inputRefs.current[index].value = value;
     if (index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
     }
   };
-
+  /*
+    auto-select the value in the input
+  */
   const onFocus = event => {
     event.target.select();
   };
 
   return (
     <div className="App">
-      {[0, 1, 2, 3, 4].map(index => {
+      {Array.from({ length }).map((_, index) => {
         return (
           <input
             required
