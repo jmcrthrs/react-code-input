@@ -6,7 +6,7 @@ import CodeInput from "./CodeInput";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
-    <CodeInput length={5} />
+    <CodeInput length={6} />
   </React.StrictMode>,
   rootElement
 );
